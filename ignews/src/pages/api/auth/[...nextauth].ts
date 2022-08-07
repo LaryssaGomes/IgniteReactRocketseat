@@ -31,7 +31,7 @@ export default NextAuth({
       }
     },
   },
-  async session(session): Promise<any> {
+  async session({ session, user, token }) {
     try {
       const userActiveSubscription = await fauna.query(
         q.Get(
